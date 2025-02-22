@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Lia Cardoso</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experiencia.html">Experiência</a></li>
+                <li><a href="formacao.html">Formação</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </button>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <h1 class="page-title">Contato</h1>
+                
+                <div class="contact-container">
+                    <!-- Informações de Contato -->
+                    <div class="contact-info">
+                        <h2>Informações de Contato</h2>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <a href="mailto:liaraquelcvs@gmail.com">liaraquelcvs@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Telefone</h3>
+                                <a href="tel:+5511954992069">+55 (11) 95499-2069</a>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Localização</h3>
+                                <p>São Paulo, SP</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-linkedin-in"></i>
+                            <div>
+                                <h3>LinkedIn</h3>
+                                <a href="https://www.linkedin.com/in/liaraquelcardoso" target="_blank">linkedin.com/in/liaraquelcardoso</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulário de Contato -->
+                    <div class="contact-form">
+                        <h2>Envie uma Mensagem</h2>
+                        <form id="contact-form" class="contact-form" onsubmit="sendWhatsApp(event)">
+                            <div class="form-group">
+                                <label for="name">Nome</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Mensagem</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fab fa-whatsapp"></i>
+                                Enviar no WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Lia Cardoso. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            emailjs.init("SEU_USER_ID"); // Adicione seu user ID do EmailJS aqui
+        })();
+
+        function sendWhatsApp(event) {
+            event.preventDefault();
+            
+            // Pega os valores do formulário
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            // Formata a mensagem
+            const whatsappMessage = `Olá, me chamo ${name}!\nEmail: ${email}\n\nMensagem:\n${message}`;
+            
+            // Número do WhatsApp (substitua pelo seu número)
+            const phoneNumber = '5511954992069';
+            
+            // Cria o link do WhatsApp
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            // Abre o WhatsApp em uma nova aba
+            window.open(whatsappLink, '_blank');
+            
+            // Limpa o formulário
+            document.getElementById('contact-form').reset();
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html> 

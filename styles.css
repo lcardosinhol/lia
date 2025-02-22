@@ -1,0 +1,1495 @@
+:root {
+    /* Tema claro (padrão) */
+    --primary-color: #2c3e50;
+    --accent-color: #f8d7dd;
+    --text-color: #333;
+    --bg-color: #faf3f0;
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --container-width: 1440px;  /* Base para 1080p */
+}
+
+/* Tema escuro */
+[data-theme="dark"] {
+    --primary-color: #e4a6af;
+    --accent-color: #2c3e50;
+    --text-color: #fff;
+    --bg-color: #1a1a1a;
+    --glass-bg: rgba(0, 0, 0, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, var(--bg-color), var(--accent-color));
+    color: var(--text-color);
+    min-height: 100vh;
+    transition: background 0.3s ease;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-color);
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-menu ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.nav-menu a:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+}
+
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+.profile-content {
+    text-align: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
+    max-width: 800px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.profile-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 2rem;
+    border: 4px solid var(--accent-color);
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    color: var(--primary-color);
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.tagline {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin: 1rem 0 2rem;
+    font-style: italic;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    background: #3a4d63;
+}
+
+.stats-section {
+    padding: 6rem 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    text-align: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-5px);
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    color: var(--text-color);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    /* Ajustes gerais de fonte e preenchimento */
+    .container {
+        width: 98%; /* Usa mais espaço lateral */
+    }
+
+    /* Títulos */
+    .page-title {
+        font-size: 1.6rem;
+        margin: 0.3rem 0 0.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.4rem;
+        margin: 0.5rem 0;
+    }
+
+    /* Ajustes dos textos em geral */
+    p, li, a {
+        font-size: 1rem;
+    }
+
+    /* Ajustes dos cards e conteúdo */
+    .timeline-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .timeline-content h4 {
+        font-size: 1.1rem;
+    }
+
+    .timeline-content p,
+    .timeline-content ul {
+        font-size: 1rem;
+    }
+
+    .skill-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .education-card h3,
+    .course-card h3 {
+        font-size: 1rem;
+    }
+
+    .education-card h4,
+    .course-institution {
+        font-size: 0.95rem;
+    }
+
+    /* Ajustes dos botões sociais */
+    .social-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .social-btn i {
+        font-size: 0.9rem;
+    }
+
+    .social-btn span {
+        font-size: 0.85rem;
+    }
+
+    /* Ajustes do perfil */
+    .profile-content h1 {
+        font-size: 2rem;
+    }
+
+    .profile-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+    }
+
+    /* Ajustes do formulário de contato */
+    .contact-info h2,
+    .contact-form h2 {
+        font-size: 1.3rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .submit-btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    /* Mantém o espaço para a home */
+    .hero {
+        margin-top: 3.5rem;
+        padding: 1.5rem 0;
+    }
+
+    /* Reduz drasticamente o espaço para as outras seções */
+    .experience-section,
+    .education-section,
+    .skills-section,
+    .contact-section {
+        margin-top: 1.5rem;
+        padding-top: 0.5rem;
+    }
+
+    main {
+        margin-top: 3rem;
+    }
+
+    /* Ajuste dos títulos das seções internas */
+    .experience-section .page-title,
+    .education-section .page-title,
+    .skills-section .page-title,
+    .contact-section .page-title {
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+        font-size: 1.3rem;
+    }
+
+    /* Container mais próximo do topo */
+    .experience-section .container,
+    .education-section .container,
+    .skills-section .container,
+    .contact-section .container {
+        padding-top: 0.5rem;
+    }
+
+    /* Ajuste do conteúdo interno */
+    .timeline,
+    .education-grid,
+    .courses-grid,
+    .skills-container,
+    .contact-container {
+        margin-top: 0.8rem;
+    }
+
+    .header {
+        height: 46px;
+        padding: 0.5rem;
+    }
+
+    .nav-menu {
+        justify-content: center;
+    }
+
+    .nav-menu ul {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        flex-wrap: nowrap;
+    }
+
+    .nav-menu a {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.5rem;
+        white-space: nowrap;
+        font-weight: 400;
+    }
+
+    .theme-toggle {
+        width: 28px;
+        height: 28px;
+        font-size: 0.85rem;
+    }
+
+    /* Seções */
+    .experience-section,
+    .contact-section,
+    .education-section,
+    .skills-section {
+        padding: 0.3rem 0;
+    }
+
+    /* Grid de formação e cursos - Mantendo layout desktop */
+    .education-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .course-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 15px;
+        padding: 1.2rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .course-icon {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+    }
+
+    .course-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .course-institution {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .course-info,
+    .course-year {
+        font-size: 0.8rem;
+        margin: 0.2rem 0;
+    }
+
+    /* Ajustes para a seção de habilidades */
+    .skills-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Duas colunas */
+        gap: 1rem;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .skills-column {
+        width: 100%;
+    }
+
+    .skills-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .skills-grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Uma coluna para os cards */
+        gap: 0.8rem;
+    }
+
+    .skill-card {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .skill-card i {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .skill-card h3 {
+        font-size: 0.9rem;
+        margin: 0.3rem 0;
+    }
+
+    .skill-level {
+        margin-top: 0.5rem;
+    }
+
+    /* Ajustes para a seção de experiência */
+    .experience-section {
+        padding: 2rem 0;
+    }
+
+    .experience-section .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .timeline {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .timeline-item {
+        width: 100%;
+        margin: 0 0 1.5rem 0;
+    }
+
+    .timeline-content {
+        padding: 1.5rem;
+        border-radius: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    .experience-list {
+        padding-left: 1.5rem;
+    }
+
+    /* Ajustes dos botões sociais na home */
+    .social-links {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: 0.8rem;
+    }
+
+    .social-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    .social-btn i {
+        font-size: 0.8rem;
+    }
+
+    .social-btn span {
+        font-size: 0.75rem;
+    }
+
+    /* Ajustes do conteúdo do perfil */
+    .profile-content {
+        padding: 1rem;
+    }
+
+    .profile-content h1 {
+        font-size: 1.8rem;
+        margin: 0.5rem 0;
+    }
+
+    .profile-content h2 {
+        font-size: 1.1rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .page-title {
+        margin-top: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    /* Ajustes da seção de contato no mobile */
+    .contact-section {
+        padding: 2rem 0;
+    }
+
+    .contact-section .container {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 1.5rem;
+        border-radius: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Para telas muito pequenas (menos que 480px) */
+@media (max-width: 480px) {
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+}
+
+.about-section {
+    padding: 6rem 0;
+    background: var(--glass-bg);
+    transition: all 0.3s ease;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.about-description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    text-align: justify;
+}
+
+.values-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.values-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.values-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.1rem;
+}
+
+.values-list i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.thought-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-top: 1.5rem;
+}
+
+.thought-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+/* Responsividade para a página Sobre */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image {
+        margin-bottom: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+    }
+}
+
+.experience-section {
+    padding: 8rem 2rem 4rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.2;
+}
+
+.timeline-item {
+    padding: 2rem 0;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.timeline-content {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    width: 80%;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    left: -7px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.date {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content h4 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.experience-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.experience-list li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.experience-list li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+/* Responsividade para a timeline */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 30px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px;
+    }
+
+    .timeline-content::before {
+        left: -37px;
+    }
+}
+
+.education-section {
+    padding: 8rem 2rem 4rem;
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.education-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+}
+
+.education-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.education-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.education-card h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.education-location,
+.education-period {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.education-status {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin: 1rem 0;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    opacity: 1;
+    visibility: visible;
+}
+
+.course-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    transition: transform 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.course-card h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.course-institution {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.course-info {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.course-year {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .education-grid,
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .education-card,
+    .course-card {
+        padding: 1.5rem;
+    }
+}
+
+.skills-section {
+    padding: 8rem 2rem 4rem;
+}
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.skills-subtitle {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.skill-level {
+    height: 6px;
+    background: rgba(0,0,0,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.level-bar {
+    height: 100%;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transition: width 1s ease;
+}
+
+.skill-card[data-level]::after {
+    content: attr(data-level);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 0.8rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.skill-card[data-level]:hover::after {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .skill-card {
+        padding: 1.5rem;
+    }
+}
+
+.contact-section {
+    padding: 4rem 2rem;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.contact-info h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.info-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.info-item a,
+.info-item p {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+    color: var(--primary-color);
+}
+
+.contact-form {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.contact-form h2 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: #ffffff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #666;
+}
+
+.submit-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    background: #3a4d63;
+}
+
+/* Versão mobile */
+@media (max-width: 768px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 1.5rem;
+    }
+
+    .info-item {
+        gap: 1rem;
+    }
+
+    .submit-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Ajuste para telas grandes (1080p+) */
+@media (min-width: 1920px) {
+    :root {
+        --container-width: 1800px;
+    }
+
+    .profile-image {
+        width: 300px;
+        height: 300px;
+    }
+
+    h1 {
+        font-size: 5.5rem;
+    }
+
+    h2 {
+        font-size: 2.8rem;
+    }
+
+    .tagline {
+        font-size: 1.8rem;
+    }
+
+    .nav-menu a {
+        font-size: 1.4rem;
+    }
+}
+
+/* Ajuste para telas 4K */
+@media (min-width: 2560px) {
+    :root {
+        --container-width: 2400px;
+    }
+
+    .profile-image {
+        width: 400px;
+        height: 400px;
+    }
+
+    h1 {
+        font-size: 7rem;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+    }
+
+    .tagline {
+        font-size: 2.2rem;
+    }
+
+    .nav-menu a {
+        font-size: 1.6rem;
+    }
+
+    .container {
+        padding: 0 6rem;
+    }
+}
+
+/* Estilo do botão tema */
+.theme-toggle {
+    position: fixed;
+    top: 4rem;
+    right: 1rem;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+/* Controle de visibilidade dos ícones */
+.theme-toggle .fa-sun {
+    display: none;
+}
+
+.theme-toggle .fa-moon {
+    display: block;
+}
+
+/* Quando o tema é escuro */
+[data-theme="dark"] .theme-toggle .fa-sun {
+    display: block;
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+    display: none;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 768px) {
+    .theme-toggle {
+        top: 3.5rem;
+        right: 0.8rem;
+        width: 30px;
+        height: 30px;
+    }
+
+    .theme-toggle i {
+        font-size: 1rem;
+    }
+}
+
+/* Ajustes específicos para o tema escuro */
+[data-theme="dark"] {
+    /* Fundo do site */
+    background: linear-gradient(135deg, var(--bg-color), var(--accent-color));
+
+    /* Cards e seções com fundo de vidro */
+    .profile-content,
+    .about-section,
+    .stat-item,
+    .course-card,
+    .skill-card,
+    .timeline-content,
+    .contact-form,
+    .contact-info {
+        background: var(--glass-bg);
+        border-color: var(--glass-border);
+    }
+
+    /* Textos */
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-color);
+    }
+
+    p, li {
+        color: var(--text-color);
+    }
+
+    /* Links e botões */
+    .nav-menu a {
+        color: var(--primary-color);
+    }
+
+    .nav-menu a:hover {
+        background: var(--primary-color);
+        color: var(--bg-color);
+    }
+
+    .social-btn {
+        background: var(--primary-color);
+        color: var(--bg-color);
+    }
+
+    .social-btn:hover {
+        background: var(--accent-color);
+        color: var(--primary-color);
+    }
+
+    /* Ícones */
+    .course-icon i,
+    .values-list i,
+    .info-item i {
+        color: var(--primary-color);
+    }
+
+    /* Formulários */
+    .form-group input,
+    .form-group textarea {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text-color);
+        border-color: var(--glass-border);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: var(--primary-color);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Footer */
+    .footer {
+        background: var(--glass-bg);
+        color: var(--text-color);
+    }
+
+    /* Ajuste específico para botões no tema escuro */
+    .social-btn,
+    .submit-btn {
+        background: var(--primary-color);
+        color: var(--bg-color);
+        border: none;
+    }
+
+    .social-btn:hover,
+    .submit-btn:hover {
+        background: #d88e98;
+        transform: translateY(-3px);
+    }
+}
+
+/* Transição suave entre temas */
+body {
+    transition: background 0.3s ease;
+}
+
+.profile-content,
+.about-section,
+.stat-item,
+.course-card,
+.skill-card,
+.timeline-content,
+.contact-form,
+.contact-info,
+h1, h2, h3, h4, h5, h6,
+p, li, a {
+    transition: all 0.3s ease;
+}
+
+/* Ajustes gerais para todas as versões */
+.hero {
+    margin-top: 4rem;
+    padding: 2rem 0;
+}
+
+.experience-section,
+.education-section,
+.skills-section,
+.contact-section {
+    margin-top: 2rem;
+    padding-top: 1rem;
+}
+
+.page-title {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Ajustes para mobile */
+@media (max-width: 768px) {
+    .hero {
+        margin-top: 3.5rem;
+        padding: 1.5rem 0;
+    }
+
+    .experience-section,
+    .education-section,
+    .skills-section,
+    .contact-section {
+        margin-top: 1.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .page-title {
+        margin-top: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    /* Ajuste dos containers */
+    .experience-section .container,
+    .education-section .container,
+    .skills-section .container,
+    .contact-section .container {
+        padding-top: 0.5rem;
+    }
+
+    /* Ajuste do conteúdo interno */
+    .timeline,
+    .education-grid,
+    .courses-grid,
+    .skills-container,
+    .contact-container {
+        margin-top: 0.8rem;
+    }
+
+    /* Espaçamentos internos */
+    .section-subtitle {
+        margin: 1rem 0;
+    }
+
+    .timeline-item,
+    .education-card,
+    .course-card,
+    .skill-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Centralização dos títulos das seções */
+.experience-section .page-title,
+.education-section .page-title,
+.skills-section .page-title,
+.contact-section .page-title {
+    text-align: center;
+    width: 100%;
+}
+
+.section-subtitle {
+    text-align: center;
+    width: 100%;
+}
+
+/* Versão mobile */
+@media (max-width: 768px) {
+    .experience-section .page-title,
+    .education-section .page-title,
+    .skills-section .page-title,
+    .contact-section .page-title {
+        text-align: center;
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        width: 100%;
+        margin: 1rem 0;
+    }
+}
